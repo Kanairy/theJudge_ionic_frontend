@@ -33,24 +33,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-  .state('app.random2', {
-    url: '/random2',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/random2.html'
-      }
-    }
-  })
-
-  .state('app.upload', {
-    url: '/upload',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/upload.html'
-      }
-    }
-  })
-
   .state('app.outfits', {
     url: '/outfits',
     views: {
@@ -61,15 +43,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-
-  .state('app.list', {
-      url: '/list',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/list.html'
-        }
+  .state('app.upload', {
+    url: '/upload',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/upload.html',
+        controller: 'PictureCtrl'
       }
-    })
+    }
+  })
 
     .state('app.home', {
       url: '/home',

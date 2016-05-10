@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
   $scope.loginData = {};
 
@@ -19,6 +19,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.doLogin = function() {
+    //handle the actual login... api
     console.log('Doing login', $scope.loginData);
 
     $timeout(function() {
@@ -44,4 +45,10 @@ angular.module('starter.controllers', [])
       negative: '21'
     }
   ];
+})
+
+.controller('PictureCtrl', function($scope, $http) {
+
+  //needs to do the api stuff
+
 });

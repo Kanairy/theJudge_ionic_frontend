@@ -1,0 +1,21 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+}
+
+.pane, .view {
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/c1/f2/3c/c1f23c342f296278836db3c0387b9b55.jpg');
+
+}
+
+.pane view {
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/c1/f2/3c/c1f23c342f296278836db3c0387b9b55.jpg');
+
+}
+
+.listcard {
+  width: 300px;
+  margin-left: 10%;
+  margin-top: 15%;
+    position: relative
+}
