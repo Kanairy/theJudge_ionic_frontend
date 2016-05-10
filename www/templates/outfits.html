@@ -1,10 +1,20 @@
-<ion-view view-title="outfits">
+<ion-view view-title="Outfits">
   <ion-content width="200px">
     <ion-list>
       <ion-item ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.outfit_id}}">
         <div class="stylecontent">
         <p>{{outfit.occasion}}</p>
         <p><img ng-src="{{outfit.image_url}}" style="max-width: 300px; height: auto; border: 1px solid black;" ></p>
+      <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+      </label>
+    </div>
+      <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
+        <div class="stylecontent">
+        <p>{{outfit.occasion}}</p>
+        <p><img ng-src="{{outfit.image_url}}" class="outfit-images"></p>
       </div>
       </ion-item>
       <ion-item>
