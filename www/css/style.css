@@ -13,9 +13,12 @@ body {
 
 }
 
-.listcard {
-  width: 300px;
-  margin-left: 10%;
-  margin-top: 15%;
-    position: relative
+a.item.item-icon-left.home {
+  background-color: #2EFE9A;
+  color: white;
+}
+
+.listcard .home {
+  width: 150px;
+  margin: 0 auto;
 }
