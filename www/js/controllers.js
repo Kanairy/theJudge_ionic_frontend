@@ -4,6 +4,8 @@ angular.module('starter.controllers', [])
 
   $scope.loginData = {};
 
+  $scope.loggedIn = true;
+
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
@@ -28,7 +30,10 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('OutfitsCtrl', function($scope) {
+.controller('OutfitsCtrl', function($scope, $stateParams) {
+  //how to move stateparams back to the detail page...
+  $scope.id = $stateParams.id;
+
   $scope.outfits = [
     {
       outfit_id: 1,
@@ -39,8 +44,8 @@ angular.module('starter.controllers', [])
     },
     {
       outfit_id: 2,
-      occasion: 'first date',
-      image_url: 'http://media4.popsugar-assets.com/files/2015/05/19/798/n/1922398/6ef7687e_edit_img_cover_file_15954503_1432054424_9k_-4fZ3IXJ.xxxlarge/i/How-Take-Mirror-Selfie.jpg',
+      occasion: 'three hundredth date',
+      image_url: 'http://trendymods.com/wp-content/uploads/2015/09/2-How-To-Take-The-Perfect-Changing-Room-Selfie-.jpg',
       positive: '2',
       negative: '21'
     }

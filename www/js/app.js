@@ -1,4 +1,4 @@
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('theJudge', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -6,8 +6,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
-
     }
+
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
@@ -17,7 +17,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -53,7 +53,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
-    .state('app.home', {
+  .state('app.home', {
       url: '/home',
       views: {
         'menuContent': {
@@ -61,13 +61,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
           controller: 'OutfitsCtrl'
         }
       }
-    })
+  })
 
   .state('app.single', {
-    url: '/home/:playlistId',
+    url: '/outfits/:id',
     views: {
       'menuContent': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/detail.html',
         controller: 'OutfitsCtrl'
       }
     }

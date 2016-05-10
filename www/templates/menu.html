@@ -23,7 +23,7 @@
         <ion-item menu-close href="#/app/home">
           <b>Home</b>
         </ion-item>
-        <ion-item menu-close ng-click="login()">
+        <ion-item ng-if="!loggedIn" menu-close ng-click="login()">
           <b>Login</b>
         </ion-item>
         <ion-item menu-close href="#/app/random">
@@ -40,6 +40,9 @@
         </ion-item>
         <ion-item menu-close href="#/app/upload">
           <b>Upload a photo</b>
+        </ion-item>
+        <ion-item ng-if="loggedIn">
+          <b>Logged in as {{'TODO: ADD THIS!'}}</b>
         </ion-item>
       </ion-list>
     </ion-content>

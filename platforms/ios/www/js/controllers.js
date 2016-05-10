@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
   $scope.loginData = {};
 
@@ -19,6 +19,7 @@ angular.module('starter.controllers', [])
   };
 
   $scope.doLogin = function() {
+    //handle the actual login... api
     console.log('Doing login', $scope.loginData);
 
     $timeout(function() {
@@ -46,29 +47,8 @@ angular.module('starter.controllers', [])
   ];
 })
 
-.controller('PictureCtrl', function($scope, $cordovaCamera) {
+.controller('PictureCtrl', function($scope, $http) {
 
-  document.addEventListener("deviceready", function () {
+  //needs to do the api stuff
 
-    var options = {
-      quality: 50,
-      destinationType: Camera.DestinationType.DATA_URL,
-      sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
-      encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 100,
-      targetHeight: 100,
-      popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
-      correctOrientation:true
-    };
-
-    $cordovaCamera.getPicture(options).then(function(imageData) {
-      var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
-    }, function(err) {
-      // error
-    });
-
-  }, false);
 });
