@@ -1,5 +1,13 @@
-<ion-view view-title="Stylist">
+<ion-view view-title="outfits">
   <ion-content>
-    <h1>The Stylist</h1>
+    <ion-list>
+      <ion-item ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
+        {{outfit.occasion}}
+        {{outfit.image_url}}
+      </ion-item>
+      <ion-item>
+        {{}}
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

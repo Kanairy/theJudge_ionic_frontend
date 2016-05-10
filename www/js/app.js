@@ -51,6 +51,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.outfits', {
+    url: '/outfits',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/outfits.html',
+        controller: 'OutfitsCtrl'
+      }
+    }
+  })
+
 
   .state('app.list', {
       url: '/list',
@@ -66,7 +76,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/home.html',
-          controller: 'outfitsCtrl'
+          controller: 'OutfitsCtrl'
         }
       }
     })
@@ -76,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     views: {
       'menuContent': {
         templateUrl: 'templates/home.html',
-        controller: 'outfitsCtrl'
+        controller: 'OutfitsCtrl'
       }
     }
   });

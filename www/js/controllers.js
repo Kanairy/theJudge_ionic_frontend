@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
 .controller('OutfitsCtrl', function($scope) {
   $scope.outfits = [
     {
-      outfit_id: 2,
+      outfit_id: 1,
       occasion: 'first date',
       image_url: 'http://media4.popsugar-assets.com/files/2015/05/19/798/n/1922398/6ef7687e_edit_img_cover_file_15954503_1432054424_9k_-4fZ3IXJ.xxxlarge/i/How-Take-Mirror-Selfie.jpg',
       positive: '2',
