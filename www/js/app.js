@@ -63,6 +63,26 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
       }
   })
 
+  .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html',
+          controller: 'OutfitsCtrl'
+        }
+      }
+  })
+
+  .state('app.outfits_hall', {
+      url: '/outfits_hall',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/outfits_hall.html',
+          controller: 'OutfitsCtrl'
+        }
+      }
+  })
+
   .state('app.single', {
     url: '/outfits/:id',
     views: {

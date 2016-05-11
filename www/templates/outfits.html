@@ -1,11 +1,12 @@
 <ion-view view-title="Outfits">
   <ion-content width="200px">
     <ion-list>
-      <div class="list list-inset">
+      <div class="list list-inset search">
       <label class="item item-input">
         <i class="icon ion-search placeholder-icon"></i>
         <input type="text" placeholder="Search">
       </label>
+
     </div>
       <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
         <div class="stylecontent">
