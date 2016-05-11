@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
   $scope.loginData = {};
 
-  $scope.loggedIn = false;
+  $scope.loggedIn =  true;
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
   $scope.login = function() {
     $scope.modal.show();
   };
-  
+
   $scope.doRegistration = function() {
     $http({
       method: 'post',
@@ -53,7 +53,7 @@ angular.module('starter.controllers', [])
     //   console.log(response);
     // });
   };
-  
+
   $scope.doLogout = function() {
     console.log('logging out', $scope.loginData);
 

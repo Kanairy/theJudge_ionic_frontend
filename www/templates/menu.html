@@ -21,25 +21,32 @@
 
     <ion-content>
       <ion-list>
+
+
+        <ion-item ng-if="!loggedIn" menu-close ng-click="login()" style="background-color:#04B486; color: white">
+          <b>Login</b>
+        </ion-item>
+        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()" style="background-color:#04B486; color: white">
+          <b>Logout</b>
+        </ion-item>
+
         <ion-item menu-close href="#/app/home">
           <b>Home</b>
         </ion-item>
-        <ion-item ng-if="!loggedIn" menu-close ng-click="login()">
-          <b>Login</b>
-        </ion-item>
-        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()">
-          <b>Logout</b>
-        </ion-item>
+
         <ion-item menu-close href="#/app/random">
-          <b>Judge</b>
+          <b>Random style</b>
         </ion-item>
         <ion-item menu-close href="#/app/outfits_hall">
-          <b>Search</b>
+          <b>Browse styles</b>
         </ion-item>
-        <ion-item menu-close href="#/app/profile">
+        <ion-item ng-if="loggedIn" menu-close href="#/app/profile">
           <b>Profile</b>
         </ion-item>
-        <ion-item menu-close href="#/app/upload">
+        <ion-item ng-if="!loggedIn" menu-close href="#/app/signup">
+          <b>Create a profile</b>
+        </ion-item>
+        <ion-item ng-if="loggedIn" menu-close href="#/app/upload">
           <b>Upload a photo</b>
         </ion-item>
         <ion-item ng-if="loggedIn">

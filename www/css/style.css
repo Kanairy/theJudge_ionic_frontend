@@ -4,13 +4,15 @@ body {
 }
 
 .pane, .view {
-    background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');
+    background: url(../img/kaupunkitausta.jpg);
+    /*background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');*/
     background-size: 100%;
-    /*-webkit-filter: blur(10px);
-       filter: blur(10px);*/
+
 }
 
-
+.animated.fadeInLeft {
+  padding: 0px;
+}
 
 .list.card.outfits {
   padding: 0px;
@@ -30,8 +32,25 @@ body {
 
 }
 
+.change {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
 .item.item-complex {
 
+}
+
+ion-header-bar {
+ background-color: black;
+ opacity: 1;
+
+}
+
+.list {
+  margin-bottom: 0px;
 }
 
 #home {
@@ -45,6 +64,7 @@ body {
 .home-header {
   opacity: 0.7;
   text-align: center;
+  font-size: 3em;
   font-family: 'Maven Pro', sans-serif;
 }
 
@@ -93,4 +113,8 @@ body > ion-nav-view > ion-side-menus > ion-side-menu > ion-content > div.scroll 
 }
 body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > ion-list > div > ion-item > a > div > p:nth-child(2) {
   text-align: center;
+}
+
+.item {
+  border: 0px !important;
 }
