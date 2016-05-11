@@ -6,20 +6,25 @@
                 <h1 style="opacity: 0.5; text-align: center">Style Judge</h1>
             </div>
             <div class="listcard home">
-                <a class="item item-icon-left home" href="#">
+                <a class="item item-icon-left home" href="#/app/random">
                     <i class="icon ion-android-favorite"></i> Random
                 </a>
             </div>
 
             <div class="listcard home">
-                <a class="item item-icon-left home" href="#">
+                <a class="item item-icon-left home" href="#/app/outfits">
                     <i class="icon ion-ios-search"></i> Search
                 </a>
             </div>
 
-            <div class="listcard home">
-                <a class="item item-icon-left home" href="#">
+            <div class="listcard home" ng-if="loggedIn">
+                <a class="item item-icon-left home" href="#/app/upload">
                     <i class="icon ion-ios-cloud-upload"></i> Upload
+                </a>
+            </div>
+            <div class="listcard home" ng-if="!loggedIn">
+                <a class="item item-icon-left home" href="#/app/register">
+                    <i class="icon ion-ios-cloud-upload"></i> Sign Up
                 </a>
             </div>
         </div>

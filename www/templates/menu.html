@@ -27,6 +27,9 @@
         <ion-item ng-if="!loggedIn" menu-close ng-click="login()">
           <b>Login</b>
         </ion-item>
+        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()">
+          <b>Logout</b>
+        </ion-item>
         <ion-item menu-close href="#/app/random">
           <b>Judge</b>
         </ion-item>
@@ -40,7 +43,7 @@
           <b>Upload a photo</b>
         </ion-item>
         <ion-item ng-if="loggedIn">
-          <b>Logged in as {{'TODO: ADD THIS!'}}</b>
+          <b>Logged in as {{loginData.user_name}}</b>
         </ion-item>
       </ion-list>
     </ion-content>

@@ -64,10 +64,10 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
   })
 
   .state('app.single', {
-    url: '/home/:playlistId',
+    url: '/outfits/:id',
     views: {
       'menuContent': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/detail.html',
         controller: 'OutfitsCtrl'
       }
     }

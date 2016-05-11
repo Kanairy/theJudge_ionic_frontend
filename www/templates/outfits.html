@@ -1,5 +1,5 @@
 <ion-view view-title="Outfits">
-  <ion-content width="200px">
+  <ion-content width="200px" ng-init="init()">
     <ion-list>
       <div class="list list-inset">
       <label class="item item-input">
@@ -7,14 +7,14 @@
         <input type="text" placeholder="Search">
       </label>
     </div>
-      <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
+      <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit_id}}">
         <div class="stylecontent">
         <p>{{outfit.occasion}}</p>
         <p><img ng-src="{{outfit.image_url}}" class="outfit-images"></p>
       </div>
       </ion-item>
-      <ion-item>
-        {{}}
+      <ion-item ng-click="doOutfitsRequest()">
+        Load Older
       </ion-item>
     </ion-list>
   </ion-content>
