@@ -18,29 +18,39 @@
     <ion-header-bar class="bar-stable">
       <h1 class="title">Menu</h1>
     </ion-header-bar>
-  
+
     <ion-content>
       <ion-list>
+
+
+        <ion-item ng-if="!loggedIn" menu-close ng-click="login()" style="background-color:#04B486; color: white">
+          <b>Login</b>
+        </ion-item>
+        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()" style="background-color:#04B486; color: white">
+          <b>Logout</b>
+        </ion-item>
+
         <ion-item menu-close href="#/app/home">
           <b>Home</b>
         </ion-item>
-        <ion-item ng-if="!loggedIn" menu-close ng-click="login()">
-          <b>Login</b>
-        </ion-item>
+
         <ion-item menu-close href="#/app/random">
-          <b>Judge</b>
+          <b>Random style</b>
         </ion-item>
-        <ion-item menu-close href="#/app/outfits">
-          <b>Search</b>
+        <ion-item menu-close href="#/app/outfits_hall">
+          <b>Browse styles</b>
         </ion-item>
-        <ion-item menu-close href="#/app/home">
+        <ion-item ng-if="loggedIn" menu-close href="#/app/profile">
           <b>Profile</b>
         </ion-item>
-        <ion-item menu-close href="#/app/upload">
+        <ion-item ng-if="!loggedIn" menu-close href="#/app/signup">
+          <b>Create a profile</b>
+        </ion-item>
+        <ion-item ng-if="loggedIn" menu-close href="#/app/upload">
           <b>Upload a photo</b>
         </ion-item>
         <ion-item ng-if="loggedIn">
-          <b>Logged in as {{'TODO: ADD THIS!'}}</b>
+          <b>Logged in as {{loginData.user_name}}</b>
         </ion-item>
       </ion-list>
     </ion-content>

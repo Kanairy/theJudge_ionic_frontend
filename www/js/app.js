@@ -1,4 +1,4 @@
-angular.module('theJudge', ['ionic', 'starter.controllers'])
+angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

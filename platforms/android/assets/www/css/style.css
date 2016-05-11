@@ -4,12 +4,27 @@ body {
 }
 
 .pane, .view {
-    background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');
+    background: url(../img/kaupunkitausta.jpg);
+    /*background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');*/
+    background-size: 100%;
 
 }
 
+.animated.fadeInLeft {
+  padding: 0px;
+}
+
+.list.card.outfits {
+  padding: 0px;
+  margin: 0 auto;
+}
+
+.item .profile {
+  margin: 0 auto;
+}
+
 .login-page{
-  background-color: #A9F5E1;
+      background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');
 }
 
 .pane view {
@@ -17,22 +32,49 @@ body {
 
 }
 
+.change {
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  text-align: center;
+}
+
 .item.item-complex {
 
+}
+
+ion-header-bar {
+ background-color: black;
+ opacity: 1;
+
+}
+
+.list {
+  margin-bottom: 0px;
+}
+
+#home {
+  opacity: 0.7;
 }
 
 .search-list {
   margin: 20px;
 }
 
+.home-header {
+  opacity: 0.7;
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Maven Pro', sans-serif;
+}
+
 a.item.item-icon-left.home {
   background-color: #04B486;
   color: white;
-  box-shadow: 2px 2px 2px gray;
 }
 
 a.item.item-icon-left.home:active {
-  background-color: mistyrose !important;
+  background-color: silver !important;
 }
 
 .outfit-images {
@@ -40,7 +82,16 @@ a.item.item-icon-left.home:active {
 max-width: 100%;
 max-height: 100%;
 border: 1px solid black;
+}
 
+.buttonsoutfitsearch {
+  width: 100%;
+}
+
+#profile {
+  padding: 10px;
+  margin: 20px;
+  display: inline-block;
 }
 
 .listcard .home {
@@ -50,6 +101,7 @@ border: 1px solid black;
 
 .item.item-icon-left.home {
   margin-top: 60px;
+  border-radius: 25px;
 }
 
 .item-content {
@@ -61,4 +113,8 @@ body > ion-nav-view > ion-side-menus > ion-side-menu > ion-content > div.scroll 
 }
 body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-nav-view > ion-view > ion-content > div.scroll > ion-list > div > ion-item > a > div > p:nth-child(2) {
   text-align: center;
+}
+
+.item {
+  border: 0px !important;
 }

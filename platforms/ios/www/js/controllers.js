@@ -1,10 +1,12 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic', 'ngCordova'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
-  $scope.loginData = {};
+  $scope.loginData = {
+    id: 1
+  };
 
-  $scope.loggedIn = false;
+  $scope.loggedIn =  true;
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -35,18 +37,36 @@ angular.module('starter.controllers', [])
     }, function(response) {
       console.log('fail');
       console.log(response);
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      //add something clever here
     });
   };
 
   $scope.doLogin = function() {
     //handle the actual login... api
     console.log('Doing login', $scope.loginData);
+    //
+    $http({
+      method: 'get',
+      url: 'http://localhost:3000/api/users/login',
+      data: {
+        user_name: 'flo',
+        password: '123'
+      }
+    }).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log('fail');
+      console.log(response);
+    });
+  };
 
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
+  $scope.doLogout = function() {
+    console.log('logging out', $scope.loginData);
+
+    $scope.loginData = {};
+
+    $scope.loggedIn = false;
+
   };
 })
 
@@ -54,12 +74,23 @@ angular.module('starter.controllers', [])
   //how to move stateparams back to the detail page...
   $scope.id = $stateParams.id;
 
+  $scope.outfits = [];
+
+  $scope.init = function() {
+    $scope.doOutfitsRequest();
+  };
+
   $scope.doOutfitsRequest = function() {
     $http({
       method: 'get',
       url: 'http://localhost:3000/api/outfits/'
     }).then(function(response) {
-      console.log(response);
+      console.log(response.data);
+      $scope.outfits = _.filter(response.data, function(outfit) {
+        console.log($scope.loginData);
+        console.log(outfit.id);
+        return outfit.id != $scope.loginData.id;
+      });
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -81,34 +112,28 @@ angular.module('starter.controllers', [])
       // or server returns response with an error status.
     });
   };
-
-  $scope.outfits = [
-    {
-      outfit_id: 1,
-      occasion: 'First date',
-      image_url: 'http://media4.popsugar-assets.com/files/2015/05/19/798/n/1922398/6ef7687e_edit_img_cover_file_15954503_1432054424_9k_-4fZ3IXJ.xxxlarge/i/How-Take-Mirror-Selfie.jpg',
-      positive: '2',
-      negative: '21'
-    },
-    {
-      outfit_id: 2,
-      occasion: 'Festival mood',
-      image_url: 'http://trendymods.com/wp-content/uploads/2015/09/2-How-To-Take-The-Perfect-Changing-Room-Selfie-.jpg',
-      positive: '30',
-      negative: '11'
-    },
-    {
-      outfit_id: 3,
-      occasion: 'Job interview',
-      image_url: 'https://s-media-cache-ak0.pinimg.com/236x/a5/dd/c7/a5ddc78f713e305d1448491ace98d551.jpg',
-      positive: '40',
-      negative: '5'
-    }
-  ];
 })
 
-.controller('PictureCtrl', function($scope, $http) {
+.controller('PictureCtrl', function($scope, $http, $cordovaFileTransfer ) {
 
-  //needs to do the api stuff
+  $scope.add = function(){
+    var f = document.getElementById('upload').files[0],
+        r = new FileReader();
+    r.onloadend = function(e){
+      var data = e.target.result;
+      console.log(data);
+      //send you binary data via $http or $resource or do anything else with it
+    };
+    r.readAsBinaryString(f);
+  };
+
+
+  $scope.uploadFile = function() {
+
+    $scope.targetPath = document.getElementById('upload').files[0];
+    console.log($scope.targetPath);
+  };
+
 
 });
+

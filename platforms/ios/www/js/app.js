@@ -24,11 +24,15 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
+
+
+
   .state('app.random', {
     url: '/random',
     views: {
       'menuContent': {
-        templateUrl: 'templates/random.html'
+        templateUrl: 'templates/random.html',
+        controller: 'OutfitsCtrl'
       }
     }
   })
@@ -63,6 +67,38 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
       }
   })
 
+  .state('app.profile', {
+      url: '/profile',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html',
+          controller: 'OutfitsCtrl'
+        }
+      }
+  })
+
+
+  .state('app.signup', {
+      url: '/signup',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/signup.html',
+          controller: 'OutfitsCtrl'
+        }
+      }
+  })
+
+
+  .state('app.outfits_hall', {
+      url: '/outfits_hall',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/outfits_hall.html',
+          controller: 'OutfitsCtrl'
+        }
+      }
+  })
+
   .state('app.single', {
     url: '/outfits/:id',
     views: {
@@ -72,5 +108,6 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
       }
     }
   });
+
   $urlRouterProvider.otherwise('/app/home');
 });

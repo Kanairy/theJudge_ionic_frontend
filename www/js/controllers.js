@@ -1,8 +1,10 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['naif.base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
-  $scope.loginData = {};
+  $scope.loginData = {
+    id: 1
+  };
 
   $scope.loggedIn =  true;
 
@@ -43,15 +45,19 @@ angular.module('starter.controllers', [])
     //handle the actual login... api
     console.log('Doing login', $scope.loginData);
     //
-    // $http({
-    //   method: 'get',
-    //   url: 'http://localhost:3000/api/users/'
-    // }).then(function(response) {
-    //   console.log(response);
-    // }, function(response) {
-    //   console.log('fail');
-    //   console.log(response);
-    // });
+    $http({
+      method: 'get',
+      url: 'http://localhost:3000/api/users/login',
+      data: {
+        user_name: 'flo',
+        password: '123'
+      }
+    }).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log('fail');
+      console.log(response);
+    });
   };
 
   $scope.doLogout = function() {
@@ -79,8 +85,12 @@ angular.module('starter.controllers', [])
       method: 'get',
       url: 'http://localhost:3000/api/outfits/'
     }).then(function(response) {
-      console.log(response);
-      $scope.outfits = response;
+      console.log(response.data);
+      $scope.outfits = _.filter(response.data, function(outfit) {
+        console.log($scope.loginData);
+        console.log(outfit.id);
+        return outfit.id != $scope.loginData.id;
+      });
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -106,6 +116,27 @@ angular.module('starter.controllers', [])
 
 .controller('PictureCtrl', function($scope, $http) {
 
-  //needs to do the api stuff
+  $scope.file = {};
+
+  $scope.add = function (e, reader, file, fileList, fileObjects, fileObj) {
+    $scope.file = fileObj;
+  };
+
+  $scope.upload = function() {
+    console.log($scope.file);
+    $http({
+      method: 'post',
+      url: 'http://localhost:3000/api/outfits/',
+      data: $scope.file
+    }).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log('fail');
+      console.log(response);
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+  };
 
 });
+
