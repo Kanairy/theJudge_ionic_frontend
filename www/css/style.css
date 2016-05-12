@@ -96,10 +96,21 @@ a.item.item-icon-left.home {
 
 .item.item-input-inset {
   border: 1px solid black !important;
+  border-radius: 50px;
 }
+
+
 
 .item.item-icon-left.home:active {
   opacity: 0.5;
+}
+
+.bar.bar-header {
+  border-bottom: 1px solid grey !important;
+}
+
+.item.item-input {
+  border-bottom: 1px solid grey !important;
 }
 
 .item.item-icon-left.dark {

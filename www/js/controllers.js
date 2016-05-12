@@ -2,11 +2,9 @@ angular.module('starter.controllers', ['naif.base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
-  $scope.loginData = {
-    id: 1
-  };
+  $scope.loginData = {};
 
-  $scope.loggedIn =  true;
+  $scope.loggedIn =  false;
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -23,13 +21,19 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.doRegistration = function() {
+    // $scope.loginData.email = email
+    console.log($scope.loginData);
     $http({
+
       method: 'post',
       url: 'http://localhost:3000/api/users/',
       data: {
-        user_name: 'test',
-        email: 'test@test',
-        password: 'test'
+        user_name: $scope.loginData.user_name,
+        email: 'test@test.com',
+        password: $scope.loginData.password,
+        // user_name: $scope.loginData.username,
+        // email: $scope.loginData.email,
+        // password: $scope.loginData.password
       }
     }).then(function(response) {
       console.log('success');
@@ -139,4 +143,3 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
 });
-
