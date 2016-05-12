@@ -21,19 +21,14 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.doRegistration = function() {
-    // $scope.loginData.email = email
     console.log($scope.loginData);
     $http({
-
       method: 'post',
       url: 'http://localhost:3000/api/users/',
       data: {
         user_name: $scope.loginData.user_name,
         email: 'test@test.com',
         password: $scope.loginData.password,
-        // user_name: $scope.loginData.username,
-        // email: $scope.loginData.email,
-        // password: $scope.loginData.password
       }
     }).then(function(response) {
       console.log('success');
@@ -45,19 +40,28 @@ angular.module('starter.controllers', ['naif.base64'])
     });
   };
 
+  $scope.getLoginData = function() {
+    console.log($scope.loginData);
+    return $scope.email;
+  };
+
   $scope.doLogin = function() {
     //handle the actual login... api
     console.log('Doing login', $scope.loginData);
     //
     $http({
-      method: 'get',
+      method: 'post',
       url: 'http://localhost:3000/api/users/login',
       data: {
-        user_name: 'flo',
-        password: '123'
+        email: $scope.loginData.email,
+        password: $scope.loginData.password
       }
     }).then(function(response) {
       console.log(response);
+      console.log($scope.loginData);
+      console.log(response.data.id);
+      $scope.loginData.id = response.data.id;
+      $scope.loggedIn =  true;
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -127,18 +131,18 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.upload = function() {
-    console.log($scope.file);
+    console.log($scope.loginData);
     $http({
       method: 'post',
       url: 'http://localhost:3000/api/outfits/',
       data: $scope.file
     }).then(function(response) {
       console.log(response);
+
     }, function(response) {
       console.log('fail');
       console.log(response);
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      //give error message to user
     });
   };
 

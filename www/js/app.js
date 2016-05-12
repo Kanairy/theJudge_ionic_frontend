@@ -24,9 +24,6 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
     controller: 'AppCtrl'
   })
 
-
-
-
   .state('app.random', {
     url: '/random',
     views: {
@@ -72,7 +69,7 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/profile.html',
-          controller: 'OutfitsCtrl'
+          controller: 'AppCtrl'
         }
       }
   })
@@ -83,7 +80,7 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/signup.html',
-          controller: 'OutfitsCtrl'
+          controller: 'AppCtrl'
         }
       }
   })

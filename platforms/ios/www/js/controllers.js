@@ -1,10 +1,8 @@
-angular.module('starter.controllers', ['ionic', 'ngCordova'])
+angular.module('starter.controllers', ['naif.base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
-  $scope.loginData = {
-    id: 1
-  };
+  $scope.loginData = {};
 
   $scope.loggedIn =  true;
 
@@ -23,13 +21,18 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
   };
 
   $scope.doRegistration = function() {
+    // $scope.loginData.email = email
+    console.log($scope.loginData);
     $http({
       method: 'post',
       url: 'http://localhost:3000/api/users/',
       data: {
-        user_name: 'test',
-        email: 'test@test',
-        password: 'test'
+        user_name: $scope.loginData.user_name,
+        email: 'test@test.com',
+        password: $scope.loginData.password,
+        // user_name: $scope.loginData.username,
+        // email: $scope.loginData.email,
+        // password: $scope.loginData.password
       }
     }).then(function(response) {
       console.log('success');
@@ -114,26 +117,29 @@ angular.module('starter.controllers', ['ionic', 'ngCordova'])
   };
 })
 
-.controller('PictureCtrl', function($scope, $http, $cordovaFileTransfer ) {
+.controller('PictureCtrl', function($scope, $http) {
 
-  $scope.add = function(){
-    var f = document.getElementById('upload').files[0],
-        r = new FileReader();
-    r.onloadend = function(e){
-      var data = e.target.result;
-      console.log(data);
-      //send you binary data via $http or $resource or do anything else with it
-    };
-    r.readAsBinaryString(f);
+  $scope.file = {};
+
+  $scope.add = function (e, reader, file, fileList, fileObjects, fileObj) {
+    $scope.file = fileObj;
   };
 
+  $scope.upload = function() {
 
-  $scope.uploadFile = function() {
-
-    $scope.targetPath = document.getElementById('upload').files[0];
-    console.log($scope.targetPath);
+    console.log($scope.file.base64);
+    $http({
+      method: 'post',
+      url: 'http://localhost:3000/api/outfits/',
+      data: $scope.file
+    }).then(function(response) {
+      console.log(response);
+    }, function(response) {
+      console.log('fail');
+      console.log(response);
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
   };
-
 
 });
-

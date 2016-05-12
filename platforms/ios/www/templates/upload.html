@@ -4,9 +4,9 @@
 
       <div class="item item-input-inset">
         <label class="item-input-wrapper">
-          <input id="upload" type="file" placeholder="Upload" accept="image/*;capture=camera">
+          <input type="file" ng-model="file" accept="image/*;capture=camera" name="file" base-sixty-four-input required onload="add" accept="image/*">
         </label>
-        <button class="button button-small" ng-click="add()">
+        <button class="button button-small" ng-click="upload()">
           Upload
         </button>
       </div>

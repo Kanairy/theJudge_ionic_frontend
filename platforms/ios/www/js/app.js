@@ -1,4 +1,4 @@
-angular.module('theJudge', ['ionic', 'starter.controllers'])
+angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,9 +23,6 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-
-
 
   .state('app.random', {
     url: '/random',
@@ -83,7 +80,7 @@ angular.module('theJudge', ['ionic', 'starter.controllers'])
       views: {
         'menuContent': {
           templateUrl: 'templates/signup.html',
-          controller: 'OutfitsCtrl'
+          controller: 'AppCtrl'
         }
       }
   })

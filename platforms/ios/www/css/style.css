@@ -7,7 +7,32 @@ body {
     background: url(../img/kaupunkitausta.jpg);
     /*background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');*/
     background-size: 100%;
+    background-repeat: no-repeat;
 
+}
+
+
+
+.list.list-inset {
+  opacity: 0.8;
+}
+
+.ion-chevron-right:before {
+  opacity: 0.7;
+}
+
+.chat-item.ng-enter {
+    -webkit-animation: fadeInLeft 1s;
+    animation: fadeInLeft 1s;
+}
+
+.chat-item.ng-enter-stagger {
+  -webkit-animation-delay:200ms;
+  animation-delay:200ms;
+
+  /* override to make sure it's not inherited from other styles */
+  -webkit-animation-duration:0;
+  animation-duration:0;
 }
 
 .animated.fadeInLeft {
@@ -37,10 +62,6 @@ body {
   margin-bottom: 20px;
   margin-right: 20px;
   text-align: center;
-}
-
-.item.item-complex {
-
 }
 
 ion-header-bar {
@@ -73,8 +94,35 @@ a.item.item-icon-left.home {
   color: white;
 }
 
-a.item.item-icon-left.home:active {
-  background-color: silver !important;
+.item.item-input-inset {
+  border: 1px solid black !important;
+  border-radius: 50px;
+}
+
+
+
+.item.item-icon-left.home:active {
+  opacity: 0.5;
+}
+
+.bar.bar-header {
+  border-bottom: 1px solid grey !important;
+}
+
+.item.item-input {
+  border-bottom: 1px solid grey !important;
+}
+
+.item.item-icon-left.dark {
+  border-top: 1px solid silver !important;
+}
+
+/*.item.item-image {
+  border-top: 1px solid gray !important;
+}*/
+
+a:link {
+filter: blur(20px);
 }
 
 .outfit-images {
@@ -118,3 +166,11 @@ body > ion-nav-view > ion-side-menus > ion-side-menu-content > ion-nav-view > io
 .item {
   border: 0px !important;
 }
+
+.item.item-image.random {
+  max-height: 390px;
+  max-width: 100%;
+  margin: 20px;
+}
+/*
+ style="max-height: 400px; max-width: 250px; padding-top: 20px; padding-bottom: 20px;"*/
