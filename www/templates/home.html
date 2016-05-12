@@ -4,7 +4,7 @@
 
             <div class="item" id="home">
 
-                <ion-item class="animated fadeInLeft" style="padding: 10px">
+                <ion-item class="animated fadeInLeft" style="padding: 10px;  animation-delay:500ms;">
                 <h1 class="home-header">Stylesetter</h1>
               </ion-item>
             </div>
@@ -12,24 +12,25 @@
           </ion-item>
 
             <div class="listcard home">
-                <a class="item item-icon-left home animated fadeInRight" style="-webkit-transform: translate3d(80%,0,0);" href="#/app/random">
+                <a class="item item-icon-left home animated fadeInRight" style="-webkit-transform: translate3d(80%,0,0) ; animation-delay:500ms;" href="#/app/random">
                     <i class="icon ion-android-favorite"></i> Random
                 </a>
             </div>
 
             <div class="listcard home">
-                <a class="item item-icon-left home animated fadeInRight" href="#/app/outfits">
+                <a class="item item-icon-left home animated fadeInRight" style="-webkit-transform: translate3d(80%,0,0) ; animation-delay:500ms;" href="#/app/outfits">
                     <i class="icon ion-ios-search"></i> Search
                 </a>
             </div>
 
-            <div class="listcard home animated fadeInRight" ng-if="loggedIn">
-                <a class="item item-icon-left home" href="#/app/upload">
+            <div class="listcard home" ng-if="loggedIn">
+                <a class="item item-icon-left home animated fadeInRight" style="-webkit-transform: translate3d(80%,0,0) ; animation-delay:500ms;" href="#/app/outfits" href="#/app/upload">
                     <i class="icon ion-ios-cloud-upload"></i> Upload
                 </a>
             </div>
-            <div class="listcard home animated fadeInRight" ng-if="!loggedIn">
-                <a class="item item-icon-left home" href="#/app/register">
+            <div class="listcard home" ng-if="!loggedIn">
+                <a class="item item-icon-lef
+                t home animated fadeInRight" style="-webkit-transform: translate3d(80%,0,0) ; animation-delay:500ms; href="#/app/outfits" href="#/app/register">
                     <i class="icon ion-ios-cloud-upload"></i> Sign Up
                 </a>
             </div>

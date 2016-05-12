@@ -1,4 +1,4 @@
-
+<body class="menu-background">
 
 <ion-side-menus enable-menu-with-back-views="false">
   <ion-side-menu-content>
@@ -23,11 +23,14 @@
       <ion-list>
 
 
-        <ion-item ng-if="!loggedIn" menu-close ng-click="login()" style="background-color:#04B486; color: white">
+        <ion-item ng-if="!loggedIn" menu-close ng-click="login()" style="background-color:#04B486; color: white; padding-left: 25px;">
           <b>Login</b>
         </ion-item>
-        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()" style="background-color:#04B486; color: white">
+        <ion-item ng-if="loggedIn" menu-close ng-click="doLogout()" style="background-color:#04B486; color: white; padding-left: 25px;">
           <b>Logout</b>
+        </ion-item>
+              <ion-item ng-if="loggedIn" style="padding-left: 25px">
+          <b>Logged in as {{loginData.user_name}}</b>
         </ion-item>
 
         <ion-item menu-close href="#/app/home">
@@ -49,10 +52,9 @@
         <ion-item ng-if="loggedIn" menu-close href="#/app/upload">
           <b>Upload a photo</b>
         </ion-item>
-        <ion-item ng-if="loggedIn">
-          <b>Logged in as {{loginData.user_name}}</b>
-        </ion-item>
+  
       </ion-list>
     </ion-content>
   </ion-side-menu>
 </ion-side-menus>
+</body>
