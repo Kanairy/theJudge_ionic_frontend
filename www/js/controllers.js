@@ -4,7 +4,7 @@ angular.module('starter.controllers', ['naif.base64'])
 
   $scope.loginData = {};
 
-  $scope.loggedIn =  false;
+  $scope.loggedIn =  true;
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
