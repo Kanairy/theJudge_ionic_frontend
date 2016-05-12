@@ -2,9 +2,11 @@ angular.module('starter.controllers', ['naif.base64'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, $http) {
 
-  $scope.loginData = {};
+  if (!$scope.loginData) {
+    $scope.loginData = {};
+  }
 
-  $scope.loggedIn =  true;
+  $scope.loggedIn = false;
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -21,22 +23,21 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.doRegistration = function() {
-    console.log($scope.loginData);
     $http({
       method: 'post',
       url: 'http://localhost:3000/api/users/',
       data: {
+        email: $scope.loginData.email,
         user_name: $scope.loginData.user_name,
-        email: 'test@test.com',
-        password: $scope.loginData.password,
+        password: $scope.loginData.password
       }
     }).then(function(response) {
       console.log('success');
-      console.log(response);
+      $scope.loginData.id = response.data.id;
+      $scope.loginData.user_name = response.data.user_name;
     }, function(response) {
       console.log('fail');
-      console.log(response);
-      //add something clever here
+      //TODO: add fail case.
     });
   };
 
@@ -46,9 +47,7 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.doLogin = function() {
-    //handle the actual login... api
     console.log('Doing login', $scope.loginData);
-    //
     $http({
       method: 'post',
       url: 'http://localhost:3000/api/users/login',
@@ -57,10 +56,8 @@ angular.module('starter.controllers', ['naif.base64'])
         password: $scope.loginData.password
       }
     }).then(function(response) {
-      console.log(response);
-      console.log($scope.loginData);
-      console.log(response.data.id);
       $scope.loginData.id = response.data.id;
+      $scope.loginData.user_name = response.data.user_name;
       $scope.loggedIn =  true;
     }, function(response) {
       console.log('fail');
@@ -84,6 +81,8 @@ angular.module('starter.controllers', ['naif.base64'])
 
   $scope.outfits = [];
 
+  $scope.myOutfits = [];
+
   $scope.init = function() {
     $scope.doOutfitsRequest();
   };
@@ -98,6 +97,23 @@ angular.module('starter.controllers', ['naif.base64'])
         console.log($scope.loginData);
         console.log(outfit.id);
         return outfit.id != $scope.loginData.id;
+      });
+    }, function(response) {
+      console.log('fail');
+      console.log(response);
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
+  };
+
+  $scope.doMyOutfitsRequest = function() {
+    $http({
+      method: 'get',
+      url: 'http://localhost:3000/api/outfits/'
+    }).then(function(response) {
+      console.log(response.data);
+      $scope.myOutfits = _.filter(response.data, function(outfit) {
+        return outfit.id == $scope.loginData.id;
       });
     }, function(response) {
       console.log('fail');

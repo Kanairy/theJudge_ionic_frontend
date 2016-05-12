@@ -1,40 +1,33 @@
 <ion-view view-title="Profile">
-    <ion-content>
-        <div class="list profilepage" style="padding: 30px">
-            <ion-list>
-                <div class="item item-input-inset">
-
-                    <div class="list profile animated fadeIn" style="animation-duration: 2s;">
-                        <h2 ng-if="loggedIn">{{getLoginData()}}</h2>
-                        <a class="item item-avatar" href="#">
-                            <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1/128/profile2-128.png">
-
-                            <p>Back off, man. Javascript rules.</p>
-                            <p>Rocking the first date</p>
-                        </a>
-                    </div>
-                </div>
+<ion-content>
+<div class="list profilepage" style="padding: 30px">
+    <ion-list>
+    <div class="item item-input-inset">
+        <div class="list profile animated fadeIn" style="animation-duration: 2s;">
+            <h2 ng-if="loggedIn">{{loginData.email}}</h2>
+            <a class="item item-avatar" href="#">
+                <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1/128/profile2-128.png">
+                <p>Atlas Shrugged.</p>
+                <p>Rocking the first date</p>
+            </a>
         </div>
-
-        <div class="change">
-            <button class="button button-dark">
-                Change password
-            </button>
-            <button class="button button-dark">
-                Delete profile
-            </button>
-        </div>
-
-        <div>
-            <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit_id}}">
-                <div class="stylecontent">
-                    <p>{{outfit.occasion}}</p>
-                    <p><img ng-src="{{outfit.image_url}}" class="outfit-images"></p>
-                </div>
-            </ion-item>
-            <ion-item ng-click="doOutfitsRequest()">
-                Load Older
-            </ion-item>
-        </div>
-    </ion-content>
+    </div>
+</div>
+<div class="change">
+    <button class="button button-dark">
+    Change password
+    </button>
+    <button class="button button-dark">
+    Delete profile
+    </button>
+</div>
+<div>
+    <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit_id}}">
+    <div class="stylecontent">
+        <p>{{outfit.occasion}}</p>
+        <p><img ng-src="{{outfit.image_url}}" class="outfit-images"></p>
+    </div>
+    </ion-item>
+</div>
+</ion-content>
 </ion-view>

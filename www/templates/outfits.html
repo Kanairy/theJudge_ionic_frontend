@@ -1,24 +1,20 @@
 <ion-view view-title="Outfits">
-    <ion-content width="200px" ng-init="init()">
-        <ion-list>
-            <div class="list list-inset search">
-                <label class="item item-input" style="border-bottom: 0px">
-                    <i class="icon ion-search placeholder-icon"></i>
-                    <input type="text" placeholder="Search">
-                </label>
-
-            </div>
-
+<ion-content width="200px" ng-init="init()">
+<ion-list>
+<div class="list list-inset search">
+    <label class="item item-input" style="border-bottom: 0px">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+    </label>
+</div>
 <div class="animated fadeIn" style="padding-top: 20px">
-
-            <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
-                <div class="stylecontent">
-                    <p>{{outfit.user_id}}</p>
-                    <p><img ng-src="{{outfit.photo.url}}" class="outfit-images"></p>
-                </div>
-            </ion-item>
-            <ion-item ng-click="doOutfitsRequest()">
-                Load Older
-            </ion-item>
-
+    <ion-item class="search-list" ng-repeat="outfit in outfits" href="#/app/outfits/{{outfit.id}}">
+    <div class="stylecontent">
+        <p>{{outfit.user_id}}</p>
+        <p><img ng-src="{{outfit.photo.url}}" class="outfit-images"></p>
+    </div>
+    </ion-item>
+    <ion-item ng-click="doOutfitsRequest()">
+    Load Older
+    </ion-item>
 </div>
