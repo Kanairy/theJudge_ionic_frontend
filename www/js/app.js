@@ -74,7 +74,6 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
       }
   })
 
-
   .state('app.signup', {
       url: '/signup',
       views: {
@@ -84,17 +83,6 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
         }
       }
   })
-
-
-  // .state('app.outfits_hall', {
-  //     url: '/outfits_hall',
-  //     views: {
-  //       'menuContent': {
-  //         templateUrl: 'templates/outfits_hall.html',
-  //         controller: 'OutfitsCtrl'
-  //       }
-  //     }
-  // })
 
   .state('app.single', {
     url: '/outfits/:id',

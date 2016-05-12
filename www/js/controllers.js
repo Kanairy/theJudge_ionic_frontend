@@ -41,11 +41,6 @@ angular.module('starter.controllers', ['naif.base64'])
     });
   };
 
-  $scope.getLoginData = function() {
-    console.log($scope.loginData);
-    return $scope.email;
-  };
-
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
     $http({
@@ -59,6 +54,7 @@ angular.module('starter.controllers', ['naif.base64'])
       $scope.loginData.id = response.data.id;
       $scope.loginData.user_name = response.data.user_name;
       $scope.loggedIn =  true;
+      $scope.closeLogin();
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -67,10 +63,9 @@ angular.module('starter.controllers', ['naif.base64'])
 
   $scope.doLogout = function() {
     console.log('logging out', $scope.loginData);
-
     $scope.loginData = {};
-
     $scope.loggedIn = false;
+    $scope.closeLogin();
 
   };
 })
@@ -83,6 +78,8 @@ angular.module('starter.controllers', ['naif.base64'])
 
   $scope.myOutfits = [];
 
+  $scope.outfit = '';
+
   $scope.init = function() {
     $scope.doOutfitsRequest();
   };
@@ -94,10 +91,11 @@ angular.module('starter.controllers', ['naif.base64'])
     }).then(function(response) {
       console.log(response.data);
       $scope.outfits = _.filter(response.data, function(outfit) {
-        console.log($scope.loginData);
-        console.log(outfit.id);
-        return outfit.id != $scope.loginData.id;
+        console.log($scope.loginData.id);
+        console.log(outfit.user_id);
+        return outfit.user_id != $scope.loginData.id;
       });
+      console.log($scope.outfits);
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -113,7 +111,7 @@ angular.module('starter.controllers', ['naif.base64'])
     }).then(function(response) {
       console.log(response.data);
       $scope.myOutfits = _.filter(response.data, function(outfit) {
-        return outfit.id == $scope.loginData.id;
+        return outfit.user_id == $scope.loginData.id;
       });
     }, function(response) {
       console.log('fail');
@@ -124,11 +122,13 @@ angular.module('starter.controllers', ['naif.base64'])
   };
 
   $scope.doOutfitRequest = function() {
+    console.log('gotrun');
     $http({
       method: 'get',
       url: 'http://localhost:3000/api/outfits/' + $stateParams.id
     }).then(function(response) {
       console.log(response);
+      $scope.outfit = response.data;
     }, function(response) {
       console.log('fail');
       console.log(response);
@@ -151,7 +151,10 @@ angular.module('starter.controllers', ['naif.base64'])
     $http({
       method: 'post',
       url: 'http://localhost:3000/api/outfits/',
-      data: $scope.file
+      data: {
+        base64: $scope.file.base64,
+        user_id: $scope.loginData.id
+      }
     }).then(function(response) {
       console.log(response);
 
