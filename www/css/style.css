@@ -11,6 +11,8 @@ body {
 
 }
 
+
+
 .item.random {
   border-bottom: 1px solid silver !important;
 }
@@ -49,6 +51,10 @@ body {
 }
 
 .login-page{
+      background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');
+}
+
+.signup-page{
       background-image: url('http://i.istockimg.com/file_thumbview_approve/40271046/3/stock-illustration-40271046-vector-seamless-background-white-geometric-texture-.jpg');
 }
 
@@ -103,7 +109,9 @@ a.item.item-icon-left.home {
 }
 
 .item.item-input-inset.profile {
-  border-radius: 30px;
+  border-radius: 30px !important;
+  width: 300px;
+  margin: 0 auto;
 }
 
 .item.item-icon-left.home:active {

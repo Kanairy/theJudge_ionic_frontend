@@ -44,6 +44,16 @@ angular.module('theJudge', ['ionic','naif.base64', 'starter.controllers'])
     }
   })
 
+    .state('app.outfits_hall', {
+    url: '/outfits_hall',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/outfits_hall.html',
+        controller: 'OutfitsCtrl'
+      }
+    }
+  })
+
   .state('app.upload', {
     url: '/upload',
     views: {

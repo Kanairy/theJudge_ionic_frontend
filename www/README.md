@@ -1,32 +1,38 @@
-This is an addon starter template for the [Ionic Framework](http://ionicframework.com/).
+# STYLESETTER
 
-## How to use this template
+Stylesetter is an app that is designed to help people with shopping issues. Many times we are shopping on our own and have no advice to support our buying decisions. If a user is tryig to look for an outfit for a special occasion such as a job interview or first date they may need some validation or advisce in case they feel insecure about their choices.
 
-*This template does not work on its own*. It is missing the Ionic library, and AngularJS.
+Stylesetter offers users a global network that rates their outfits based on the context they are planning the outfit for and this way help people who need support for their choices.
 
-To use this, either create a new ionic project using the ionic node.js utility, or copy and paste this into an existing Cordova project and download a release of Ionic separately.
+## Usage
 
-### With the Ionic tool:
+To be able to use the app, users need to create an account which gives them more functionalities such as possibility to upload. Anyone can browse the outfits but to be able to like and upload user has to create an account. 
 
-Take the name after `ionic-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+### Details
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myApp sidemenu
-```
+Stylesetter has few different functionalities. 
 
-Then, to run it, cd into `myApp` and run:
+1. Users can randomly search for outfits of people who need help. This functionality gives a random outfit that is now based on any search requirements and gives a context what the outfit has been planned for such as "festival look". This outfit can be liked or unliked.
 
-```bash
-$ ionic platform add ios
-$ ionic build ios
-$ ionic emulate ios
-```
+2. Users can also look for outfits for special occasion based on their experitse or intrests such as limit their search to only show outfits that are for "first dates" for example and rate these ones with likes and unlikes.
 
-Substitute ios for android if not on a Mac, but if you can, the ios development toolchain is a lot easier to work with until you need to do anything custom to Android.
+3. Users who need advise with their outfits can upload their pictures with their smartphones to the app. They can add an occasion what the outfit is for to help raters to find their outfits and give a more accurate rating. 
 
-## Demo
-http://plnkr.co/edit/0RXSDB?p=preview
+4. Users can see their outfits in their profiles and what rating they have gotten from their outfits.
 
-## Issues
-Issues have been disabled on this repo, if you do find an issue or have a question consider posting it on the [Ionic Forum](http://forum.ionicframework.com/).  Or else if there is truly an error, follow our guidelines for [submitting an issue](http://ionicframework.com/contribute/#issues) to the main Ionic repository. On the other hand, pull requests are welcome here!
+#### Frameworks
+
+The app has been built with following:
+
+- Ionic
+- Angular JS
+- CSS, HTML5
+- Animate.css
+- Rails
+- Postgres
+- Loadash
+- Carrierwave
+
+##### Version 2.0
+
+In the version 2.0 the app will also have a trending section - a part where users can see 

@@ -2,12 +2,12 @@
 <ion-content>
 <div class="list profilepage" style="padding: 30px">
     <ion-list>
-    <div class="item item-input-inset">
+    <div class="item item-input-inset profile">
         <div class="list profile animated fadeIn" style="animation-duration: 2s;">
-            <h2 ng-if="loggedIn">{{loginData.email}}</h2>
+            
             <a class="item item-avatar" href="#">
                 <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-productivity-1/128/profile2-128.png">
-                <p>Atlas Shrugged.</p>
+                <h2 ng-if="loggedIn">{{loginData.email}}</h2>
                 <p>Rocking the first date</p>
             </a>
         </div>
@@ -22,15 +22,15 @@
     </button>
 </div>
 <ion-list>
-<div class="animated fadeIn" style="padding-top: 20px">
+<div class="animated fadeIn" style="padding-top: 10px; margin: 0 auto">
     <ion-item class="search-list" ng-repeat="outfit in myOutfits" href="#/app/outfits/{{outfit.id}}">
     <div class="stylecontent">
         <p>{{outfit.user_id}}</p>
-        <p><img ng-src="{{outfit.photo.url}}" class="outfit-images"></p>
+        <p><img ng-src="http://2.bp.blogspot.com/-cwQ2qW9EUUY/UTVyqmV6fyI/AAAAAAAAE2Q/N2azM0XkI64/s1600/outfit1.jpg" class="outfit-images"></p>
     </div>
-    </ion-item>
+    </ion-item style="margin: 20px">
     <ion-item ng-click="doMyOutfitsRequest()">
-    Load Older
+    <img style="width: 100%" ng-src="http://2.bp.blogspot.com/-cwQ2qW9EUUY/UTVyqmV6fyI/AAAAAAAAE2Q/N2azM0XkI64/s1600/outfit1.jpg">
     </ion-item>
 </ion-list>
 </ion-content>
